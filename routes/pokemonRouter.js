@@ -9,6 +9,6 @@ const {
 
 pokemonRouter.get("/", getAllPokemons);
 pokemonRouter.get("/:id", getPokemonById);
-//pokemonRouter.get("/:id/:info", getPokemonInfoById);
+pokemonRouter.get("/:id/:info", getPokemonInfoById);
 
 module.exports = pokemonRouter;
