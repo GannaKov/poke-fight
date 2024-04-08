@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Pokemon = require("../models/pokemonModels");
+
 const {
   getAllData,
   getDataById,
@@ -63,7 +63,6 @@ const getPokemonInfoById = async (req, res, next) => {
       code: 200,
       data: result,
     });
-    console.log(result);
   } catch (err) {
     next(err);
   }
