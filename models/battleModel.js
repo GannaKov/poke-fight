@@ -30,6 +30,7 @@ const battleSchema = new Schema(
         ref: "Pokemon",
         required: true,
       },
+      name: { type: String, required: true },
     },
     score: [{ type: Number, required: true }],
   },
