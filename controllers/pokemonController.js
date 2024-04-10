@@ -1,14 +1,14 @@
 const mongoose = require("mongoose");
 
 const {
-  getAllData,
-  getDataById,
-  getByIdByInfo,
+  getAllPokemonsQuery,
+  getPokemonsByIdQuery,
+  getByIdByPokemonInfoQuery,
 } = require("../services/queries/queries");
 
 const getAllPokemons = async (req, res, next) => {
   try {
-    const result = await getAllData();
+    const result = await getAllPokemonsQuery();
 
     if (result.length === 0) {
       throw { status: 404, message: "No pokemon found" };
@@ -30,7 +30,7 @@ const getPokemonById = async (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(id)) {
       throw { status: 400, message: "Invalid ObjectId" };
     }
-    const result = await getDataById(id);
+    const result = await getPokemonsByIdQuery(id);
 
     if (!result) {
       throw { status: 404, message: "Pokemon not found" };
@@ -54,7 +54,7 @@ const getPokemonInfoById = async (req, res, next) => {
     if (!["type", "name", "base"].includes(info)) {
       throw { status: 400, message: "Bad Request. Wrong type" };
     }
-    const result = await getByIdByInfo(id, info);
+    const result = await getByIdByPokemonInfoQuery(id, info);
     if (!result) {
       throw { status: 404, message: "Pokemon not found" };
     }

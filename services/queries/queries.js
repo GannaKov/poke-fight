@@ -1,15 +1,25 @@
+const Battle = require("../../models/battleModel");
 const Pokemon = require("../../models/pokemonModels");
 
-const getAllData = async () => {
+const getAllBattlesQuery = async () => {
+  return Battle.find();
+};
+
+const getAllPokemonsQuery = async () => {
   return Pokemon.find();
 };
 
-const getDataById = (id) => {
+const getPokemonsByIdQuery = (id) => {
   return Pokemon.findById(id);
 };
 
-const getByIdByInfo = (id, info) => {
+const getByIdByPokemonInfoQuery = (id, info) => {
   return Pokemon.findById(id, { [info]: 1, _id: 0 });
 };
 
-module.exports = { getAllData, getDataById, getByIdByInfo };
+module.exports = {
+  getAllPokemonsQuery,
+  getPokemonsByIdQuery,
+  getByIdByPokemonInfoQuery,
+  getAllBattlesQuery,
+};
