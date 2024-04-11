@@ -22,7 +22,6 @@ const getGameResults = async (req, res, next) => {
 
 const postGameResult = async (req, res, next) => {
   try {
-    console.log("postGameResult");
     const { participents, winner, pokWinner, score } = req.body;
     const newBattle = new Battle({ participents, winner, pokWinner, score });
     const result = await newBattle.save();
