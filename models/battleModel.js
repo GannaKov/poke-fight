@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { Schema, model } = mongoose;
-const Pokemon = require("./pokemonModels");
+
 
 const battleSchema = new Schema(
   {

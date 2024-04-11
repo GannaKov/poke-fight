@@ -1,12 +1,10 @@
 const express = require("express");
 const pokemonRouter = require("./routes/pokemonRouter");
 const battleRouter = require("./routes/battleRouter");
-//require('dotenv').config();
 const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.json());
-//const path = require('path');
 
 app.use("/pokemon", pokemonRouter);
 app.use("/game", battleRouter);

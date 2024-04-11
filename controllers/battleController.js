@@ -1,4 +1,3 @@
-const mongoose = require("mongoose");
 const { getAllBattlesQuery } = require("../services/queries/queries");
 
 const Battle = require("../models/battleModel");
@@ -6,10 +5,6 @@ const Battle = require("../models/battleModel");
 const getGameResults = async (req, res, next) => {
   try {
     const result = await getAllBattlesQuery();
-
-    // if (result.length === 0) {
-    //   throw { status: 404, message: "No battle found" };
-    // }
     res.status(200).json({
       status: "success",
       code: 200,
